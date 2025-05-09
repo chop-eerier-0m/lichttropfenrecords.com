@@ -1,0 +1,64 @@
+.nav-overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.6); /* semi-transparent white overlay */
+    backdrop-filter: blur(6px); /* glass effect, optional */
+    z-index: 10;
+}
+
+.nav-overlay ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+}
+
+.nav-overlay a {
+    text-decoration: none;
+    color: #111;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+.nav-overlay a:hover {
+    color: #0077cc;
+}
+
+.sticky-nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8); /* semi-transparent or solid */
+    backdrop-filter: blur(8px); /* subtle glass effect */
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.sticky-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.sticky-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #222;
+    transition: color 0.3s ease;
+}
+
+.sticky-nav a:hover {
+    color: #0077cc;
+}

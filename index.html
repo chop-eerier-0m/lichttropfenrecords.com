@@ -5,16 +5,28 @@
     <meta charset="UTF-8" />
     <title>lichttropfenrecords</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header style="background-size: cover;
             background-repeat: no-repeat;
             min-height: 100dvh;
-            background-image: url(background.png);"></header>
+            background-image: url(background.png);">
+    </header>
+    <nav class="sticky-nav">
+        <ul>
+            <li><a href="#ueber-uns">🌿 Über uns</a></li>
+            <li><a href="#musik">🎶 Musik</a></li>
+            <li><a href="#kinderbuch">📖 Kinderbuch</a></li>
+            <li><a href="#therapie">🌀 Therapie & Musik</a></li>
+            <li><a href="#aktuell">🗓 Aktuell</a></li>
+            <li><a href="#kontakt">📬 Kontakt</a></li>
+        </ul>
+    </nav>
     <main>
-        <h2>🌿 Über uns</h2>
-        <section>
+        <section id="ueber-uns">
+            <h2>🌿 Über uns</h2>
             <p>Lichttropfen Records ist ein unabhängiges Musiklabel, gegründet von der Psychotherapeutin Mag. Olivia
                 Herrmannsdörfer MSc und dem DJ, Klangkünstler & Frequenzarchitekten Anthony Aue Robles.
                 Was uns verbindet, ist der Glaube an Resonanz – an die Kraft, mit der Musik berühren, verwandeln,
@@ -29,8 +41,8 @@
                 wird.
                 Lichttropfen Records ist Ort, Label, Projektionsfläche –aber vor allem: eine Einladung, hinzuhören.</p>
         </section>
-        <h2>🎶 Musik – Seite für lichttropfenrecords.com </h2>
-        <section>
+        <section id="musik">
+            <h2>🎶 Musik – Seite für lichttropfenrecords.com </h2>
             <p>Die Musik von Lichttropfen Records ist vielstimmig.
                 Sie beginnt dort, wo Worte verstummen – in Begegnungen, in innerer Bewegung, in verdichteten Momenten.
                 Manche Stücke entstehen aus therapeutisch begleiteten Prozessen. Andere aus nächtlicher Klarheit im
@@ -44,9 +56,9 @@
                 für innere Räume.
                 Hier findest du Musik, die sich nicht einordnen will.Sondern dich.
             </p>
-        </section>
-        <h2>📖 Kinderbuch </h2>
+        </section id="kinderbuch">
         <section>
+            <h2>📖 Kinderbuch </h2>
             <p>„Das Leuchten in dir – Ein Buch für große Fragen“
                 Dieses poetische Lieder - Buch trägt ein Leuchten in sich – das Leuchten großer Fragen.Fragen, die nicht
                 immer eine Antwort brauchen, sondern ein Ohr. Ein Herz. Einen Raum, in dem sie sein dürfen.„Das Leuchten
@@ -69,8 +81,8 @@
                 Bestelllink (BoD, Shop oder Etsy)
                 Optional: Feedback-Stimmen von Eltern, Kindern</p>
         </section>
-        <h2>🌀 Therapie & Musik </h2>
-        <section>
+        <section id="therapie">
+            <h2>🌀 Therapie & Musik </h2>
             <p>Was in der Tiefe geschieht, findet hier eine Stimme. In dieser Arbeit verbinden sich
                 bindungstheoretisches
                 Wissen, mentalisierungsbasierte Prozessarbeit aus psychodynamischem Verstehen und existenzanalytischem
@@ -89,15 +101,17 @@
                 als innerlich getragenes Ich.
             </p>
         </section>
-        <h2>🗓 Aktuell / Neu </h2>
-        <section>
+        <section id="aktuell">
+            <h2>🗓 Aktuell / Neu </h2>
             <p>Notizen aus dem Klangraum</p>
         </section>
-        <h2>📬 Kontakt </h2>
-        <section>
-            <p>Wir freuen uns über Resonanz – ob von Hörer:innen, Eltern oder Fachpersonen.
-                📧 E-Mail: [deine Adresse]📍 Sitz: Linz, Österreich
-                (Optional: Kontaktformular hier einfügen)</p>
+        <section id="kontakt">
+            <h2>📬 Kontakt </h2>
+            <address>
+                <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+                <p>Location: Linz, Österreich</p>
+            </address>
+
         </section>
     </main>
 </body>
