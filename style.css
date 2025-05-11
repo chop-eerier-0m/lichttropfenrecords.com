@@ -1,9 +1,4 @@
-/* Reset and base styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -45,55 +40,35 @@ nav.sticky-nav ul {
 }
 
 nav.sticky-nav a {
-    text-decoration: none;
     color: #333;
     font-weight: 500;
+    text-decoration: none;
     transition: color 0.3s;
 }
 
-nav.sticky-nav a:hover {
-    color: #007B7F;
-}
+nav.sticky-nav a:hover { color: #007B7F; }
 
-/* Main content */
 main {
-    padding: 4rem 1rem;
-    max-width: 900px;
     margin: 0 auto;
+    max-width: 900px;
+    padding: 4rem 1rem;
     position: relative;
 }
 
-section {
-    margin-bottom: 4rem;
-}
+main section:last-of-type { margin-bottom: 100dvh; }
 
-h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-    font-weight: 600;
-}
+section { margin-bottom: 4rem; }
 
-p {
-    margin-bottom: 1.5rem;
-}
+h2 { font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem; }
 
-/* Address */
-address p {
-    margin-bottom: 0.5rem;
-}
+p { margin-bottom: 1.5rem; }
 
-/* Responsive tweaks */
+address p { margin-bottom: 0.5rem; }
+
 @media (max-width: 600px) {
-    nav.sticky-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+    nav.sticky-nav ul { flex-direction: column; gap: 0.5rem; }
 
-    h2 {
-        font-size: 1.5rem;
-    }
+    h2 { font-size: 1.5rem; }
 
-    body {
-        font-size: 1rem;
-    }
+    body { font-size: 1rem; }
 }
