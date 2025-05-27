@@ -1,131 +1,377 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>lichttropfenrecords</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lichttropfen Records</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body { font-family: 'Arial', sans-serif; background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%); color: white; overflow-x: hidden; }
+
+        /* Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(0, 0, 0, 0.9); backdrop-filter: blur(10px); z-index: 1000; padding: 1rem 0; transition: all 0.3s ease; }
+
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+
+        .logo { font-size: 1.8rem; font-weight: bold; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: pulse 2s infinite; }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a { color: white; text-decoration: none; transition: all 0.3s ease; position: relative; }
+
+        .nav-links a:hover { color: #4ecdc4; transform: translateY(-2px); }
+
+        .nav-links a::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); transition: width 0.3s ease; }
+
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero Section */
+        .hero { height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+
+        .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><radialGradient id="grad1" cx="50%" cy="50%" r="50%"><stop offset="0%" style="stop-color:%23ff6b6b;stop-opacity:0.3" /><stop offset="100%" style="stop-color:%234ecdc4;stop-opacity:0.1" /></radialGradient></defs><circle cx="200" cy="200" r="100" fill="url(%23grad1)" /><circle cx="800" cy="300" r="150" fill="url(%23grad1)" /><circle cx="400" cy="700" r="120" fill="url(%23grad1)" /></svg>') no-repeat center center; background-size: cover; animation: float 6s ease-in-out infinite; }
+
+        .hero-content { z-index: 2; max-width: 800px; padding: 0 2rem; }
+
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textGlow 3s ease-in-out infinite alternate; }
+
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
+
+        .cta-button { display: inline-block; padding: 1rem 2rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; transition: all 0.3s ease; position: relative; overflow: hidden; }
+
+        .cta-button:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3); }
+
+        .cta-button::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent); transition: left 0.5s; }
+
+        .cta-button:hover::before { left: 100%; }
+
+        /* Sections */
+        .section { padding: 5rem 0; max-width: 1200px; margin: 0 auto; padding-left: 2rem; padding-right: 2rem; }
+
+        .section h2 { font-size: 2.5rem; margin-bottom: 3rem; text-align: center; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        /* Artists Grid */
+        .artists-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+
+        .artist-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 2rem; text-align: center; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        .artist-card:hover { transform: translateY(-10px); background: rgba(255, 255, 255, 0.15); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+
+        .artist-image { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; }
+
+        .artist-card h3 { margin-bottom: 0.5rem; color: #4ecdc4; }
+
+        .artist-card p { opacity: 0.8; margin-bottom: 1rem; }
+
+        .play-button { background: linear-gradient(45deg, #ff6b6b, #4ecdc4); border: none; padding: 0.5rem 1rem; border-radius: 25px; color: white; cursor: pointer; transition: all 0.3s ease; }
+
+        .play-button:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3); }
+
+        /* News Section */
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; }
+
+        .news-card { background: rgba(255, 255, 255, 0.05); border-radius: 15px; overflow: hidden; transition: all 0.3s ease; border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); }
+
+        .news-image { height: 200px; background: linear-gradient(135deg, #ff6b6b, #4ecdc4); display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white; }
+
+        .news-content { padding: 1.5rem; }
+
+        .news-date { color: #4ecdc4; font-size: 0.9rem; margin-bottom: 0.5rem; }
+
+        .news-card h3 { margin-bottom: 1rem; color: white; }
+
+        .news-card p { opacity: 0.8; line-height: 1.6; }
+
+        /* Contact Section */
+        .contact-form { max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); }
+
+        .form-group { margin-bottom: 1.5rem; }
+
+        .form-group label { display: block; margin-bottom: 0.5rem; color: #4ecdc4; }
+
+        .form-group input,
+        .form-group textarea { width: 100%; padding: 1rem; border: none; border-radius: 10px; background: rgba(255, 255, 255, 0.1); color: white; font-size: 1rem; }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder { color: rgba(255, 255, 255, 0.6); }
+
+        .submit-button { width: 100%; padding: 1rem; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); border: none; border-radius: 10px; color: white; font-size: 1rem; font-weight: bold; cursor: pointer; transition: all 0.3s ease; }
+
+        .submit-button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3); }
+
+        /* Footer */
+        footer { background: rgba(0, 0, 0, 0.8); padding: 3rem 0; text-align: center; margin-top: 5rem; }
+
+        .footer-content { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+        .social-links { display: flex; justify-content: center; gap: 2rem; margin-bottom: 2rem; }
+
+        .social-links a { width: 50px; height: 50px; border-radius: 50%; background: linear-gradient(45deg, #ff6b6b, #4ecdc4); display: flex; align-items: center; justify-content: center; color: white; text-decoration: none; transition: all 0.3s ease; }
+
+        .social-links a:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3); }
+
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes textGlow {
+            0% { filter: brightness(1); }
+            100% { filter: brightness(1.2); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+
+            .hero h1 { font-size: 2.5rem; }
+
+            .hero p { font-size: 1.1rem; }
+
+            .section { padding-left: 1rem; padding-right: 1rem; }
+
+            .artists-grid { grid-template-columns: 1fr; }
+
+            .news-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
-
 <body>
-    <nav class="sticky-nav">
-        <ul>
-            <li><a href="#ueber-uns">🌿 Über uns</a></li>
-            <li><a href="#musik">🎶 Musik</a></li>
-            <li><a href="#kinderbuch">📖 Kinderbuch</a></li>
-            <li><a href="#therapie">🌀 Therapie & Musik</a></li>
-            <li><a href="#aktuell">🗓 Aktuell</a></li>
-            <li><a href="#kontakt">📬 Kontakt</a></li>
-        </ul>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">SONIC WAVE</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#artists">Artists</a></li>
+                <li><a href="#releases">Releases</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
     </nav>
-    <header style="background-size: cover;
-            background-repeat: no-repeat;
-            min-height: 100dvh;
-            background-image: url(background.png);">
-        <figure>
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 150" preserveAspectRatio="xMidYMid meet"
-                role="img" aria-label="Lichttropfen Records">
-                <text x="0" y="100" font-family="Helvetica, Arial, sans-serif" font-size="80" fill="#1f1f1f"
-                    letter-spacing="1">
-                    Lichttropfen Records
-                </text>
-            </svg>
 
-            <figcaption style="display: none;">A blue square in SVG</figcaption>
-        </figure>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <h1>LICHTTROPFEN RECORDS</h1>
+            <p>Discover the next generation of groundbreaking artists and unforgettable music</p>
+            <a href="#artists" class="cta-button">Explore Our Artists</a>
+        </div>
+    </section>
 
-    </header>
-    <main>
-        <section id="ueber-uns">
-            <h2>🌿 Über uns</h2>
-            <p>Lichttropfen Records ist ein unabhängiges Musiklabel, gegründet von der Psychotherapeutin Mag. Olivia
-                Herrmannsdörfer MSc und dem DJ, Klangkünstler & Frequenzarchitekten Anthony Aue Robles.
-                Was uns verbindet, ist der Glaube an Resonanz – an die Kraft, mit der Musik berühren, verwandeln,
-                erinnern kann.
-                Unsere Stücke entstehen nicht im Studio allein, sondern im Zwischenraum: zwischen Menschen, in inneren
-                Prozessen, aus Erfahrung, Stille, Begegnung.
-                Olivia bringt ihre langjährige therapeutische Arbeit mit Entwicklungs- und Beziehungsthemen ein, ihre
-                Sprache, ihr Spüren, ihre Fähigkeit, Wandlung zu halten und in Worte zu fassen.Anthony übersetzt diese
-                Impulse in Klang – experimentell, feinfühlig, atmosphärisch. Oft unter Einbezug von KI-Elementen, Field
-                Recordings oder fragmentierten Stimmen.
-                Wir sehen Musik als Gefäß.Für das, was nicht erklärt werden muss.Für das, was klingt, bevor es gedacht
-                wird.
-                Lichttropfen Records ist Ort, Label, Projektionsfläche –aber vor allem: eine Einladung, hinzuhören.</p>
-        </section>
-        <section id="musik">
-            <h2>🎶 Musik – Seite für lichttropfenrecords.com </h2>
-            <p>Die Musik von Lichttropfen Records ist vielstimmig.
-                Sie beginnt dort, wo Worte verstummen – in Begegnungen, in innerer Bewegung, in verdichteten Momenten.
-                Manche Stücke entstehen aus therapeutisch begleiteten Prozessen. Andere aus nächtlicher Klarheit im
-                Studio. Manche aus Kindheitsfragmenten, andere aus elektronischem Minimalismus.
-                Was sie verbindet, ist eine Haltung: Musik nicht als Produkt zu denken, sondern als Resonanzträger.
-                Die Lieder aus unserem Kinderbuch sind zart, zugänglich, fühlbar.Unsere weiteren Produktionen – von
-                technoider Struktur bis experimentellem Pop – folgen einem anderen Puls: sie sind erdnah und körperlich,
-                aber auch sphärisch und suchend.
-                Anthony Aue Robles bringt seine langjährige Erfahrung als Techno-Produzent, Clubkünstler und
-                Sampling-Wandler ein –Olivia ihre sprachlich-emotionale Tiefe, atmosphärische Präzision und Seismografie
-                für innere Räume.
-                Hier findest du Musik, die sich nicht einordnen will.Sondern dich.
-            </p>
-        </section>
-        <section id="kinderbuch">
-            <h2>📖 Kinderbuch </h2>
-            <p>„Das Leuchten in dir – Ein Buch für große Fragen“
-                Dieses poetische Lieder - Buch trägt ein Leuchten in sich – das Leuchten großer Fragen.Fragen, die nicht
-                immer eine Antwort brauchen, sondern ein Ohr. Ein Herz. Einen Raum, in dem sie sein dürfen.„Das Leuchten
-                in dir“ ist unser Versuch, solchen Fragen eine Sprache zu geben. Nicht lauter als nötig. Nicht leiser
-                als ehrlich. Jede Zeile, jedes Lied entstand mit der Absicht, zu begleiten – nicht zu erklären. Zu
-                erinnern – nicht zu belehren - mit Worten, die tragen, Bildern, die erinnern, und Musik, die berührt.Wir
-                glauben, dass Kinder ein feines Gespür für das Wesentliche haben. Für das, was unausgesprochen bleibt.
-                Für das, was in den leisen Tönen mitschwingt. Dieses Buch begleitet Kinder (ab ca. 6 Jahren) und
-                Erwachsene durch Themen wie Leben, Tod, Liebe, Sinn und das große Ganze - Offen, einfühlsam und frei von
-                dogmatischer Sprache.
-                Das Besondere an diesem Werk ist die Ergänzung von Text und Bild durch eine musikalische Klangspur –
-                umgesetzt von Anthony Aue Robles. Seine Musik schafft einen hörbaren Resonanzraum für die inneren Bilder
-                des Buches: mit Klängen, die trösten, weiten, erinnern. Sie vertont nicht, sie vertieft.
-                „Du musst nicht alles verstehen. Aber du darfst spüren: Du bist gehalten. Du bist richtig. Du darfst
-                leuchten.“
-                Ein gemeinsames Herzensprojekt von Olivia Herrmannsdörfer & Anthony Aue Robles
-                Soziale Links: Instagram, YouTube, Spotify…
-                Buchcover + Blick ins Buch (2 Seiten sichtbar)
-                Hörproben (YouTube oder Direktplayer)
-                Bestelllink (BoD, Shop oder Etsy)
-                Optional: Feedback-Stimmen von Eltern, Kindern</p>
-        </section>
-        <section id="therapie">
-            <h2>🌀 Therapie & Musik </h2>
-            <p>Was in der Tiefe geschieht, findet hier eine Stimme. In dieser Arbeit verbinden sich
-                bindungstheoretisches
-                Wissen, mentalisierungsbasierte Prozessarbeit aus psychodynamischem Verstehen und existenzanalytischem
-                Denken mit künstlerischem Ausdruck.
-                .Innere Wandlungsprozesse werden nicht nur verstanden, sondern in Klang übersetzt – hörbar, spürbar,
-                nachvollziehbar.
-                Die musikalischen Werke entstehen aus einem Resonanzraum, der in begleiteten, oft tiefgehenden
-                interpersonalen Begegnungen eröffnet wird. Ausgangspunkt ist die Überzeugung, dass sich das Selbstbild
-                eines
-                Menschen in Beziehung formt – durch Spiegelung, Containment, Präsenz.Was in frühen Bindungserfahrungen
-                irritiert oder fragmentiert wurde, kann im geschützten Raum bewusst erlebt, reflektiert und
-                transformiert
-                werden.Ein Ich begegnet einem Du, eine Beziehung wird fühlbar – getragen von Präsenz, Resonanz und
-                Containment.Musik wird hier zum Gefäß, in dem das vormals „nicht gesehene Selbst“ sich neu verkörpern
-                darf –
-                als innerlich getragenes Ich.
-            </p>
-        </section>
-        <section id="aktuell">
-            <h2>🗓 Aktuell / Neu </h2>
-            <p>Notizen aus dem Klangraum</p>
-        </section>
-        <section id="kontakt">
-            <h2>📬 Kontakt </h2>
-            <address>
-                <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
-                <p>Location: Linz, Österreich</p>
-            </address>
+    <!-- Artists Section -->
+    <section id="artists" class="section">
+        <h2>Our Artists</h2>
+        <div class="artists-grid">
+            <div class="artist-card">
+                <div class="artist-image">NX</div>
+                <h3>Nova X</h3>
+                <p>Electronic Pop Sensation</p>
+                <button class="play-button" onclick="playArtist('Nova X')">▶ Play Latest</button>
+            </div>
+            <div class="artist-card">
+                <div class="artist-image">ZT</div>
+                <h3>Zero Tide</h3>
+                <p>Indie Rock Collective</p>
+                <button class="play-button" onclick="playArtist('Zero Tide')">▶ Play Latest</button>
+            </div>
+            <div class="artist-card">
+                <div class="artist-image">MC</div>
+                <h3>Midnight Chorus</h3>
+                <p>Alternative R&B</p>
+                <button class="play-button" onclick="playArtist('Midnight Chorus')">▶ Play Latest</button>
+            </div>
+            <div class="artist-card">
+                <div class="artist-image">VL</div>
+                <h3>Violet Luna</h3>
+                <p>Dream Pop Artist</p>
+                <button class="play-button" onclick="playArtist('Violet Luna')">▶ Play Latest</button>
+            </div>
+        </div>
+    </section>
 
-        </section>
-    </main>
+    <!-- News Section -->
+    <section id="news" class="section">
+        <h2>Latest News</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image">🎵</div>
+                <div class="news-content">
+                    <div class="news-date">May 25, 2025</div>
+                    <h3>Nova X Announces World Tour</h3>
+                    <p>Following the massive success of their latest album "Digital Dreams", Nova X is set to embark on a 30-city world tour starting this fall.</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">🏆</div>
+                <div class="news-content">
+                    <div class="news-date">May 22, 2025</div>
+                    <h3>Zero Tide Wins Independent Music Award</h3>
+                    <p>The indie rock collective takes home the coveted "Best Alternative Album" award for their groundbreaking release "Echoes of Tomorrow".</p>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image">🎤</div>
+                <div class="news-content">
+                    <div class="news-date">May 20, 2025</div>
+                    <h3>Midnight Chorus Featured on Major Playlist</h3>
+                    <p>Their latest single "Neon Nights" has been added to Spotify's "New Music Friday" and Apple Music's "Breaking Alternative" playlists.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2>Get In Touch</h2>
+        <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" name="subject" placeholder="What's this about?">
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us what's on your mind..." required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="social-links">
+                <a href="#" onclick="openSocial('spotify')">♫</a>
+                <a href="#" onclick="openSocial('instagram')">📷</a>
+                <a href="#" onclick="openSocial('twitter')">🐦</a>
+                <a href="#" onclick="openSocial('youtube')">📺</a>
+            </div>
+            <p>&copy; 2025 Sonic Wave Records. All rights reserved.</p>
+            <p>Amplifying the future of music, one beat at a time.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Dynamic navigation background on scroll
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+
+        // Artist play button functionality
+        function playArtist(artistName) {
+            // Create a visual feedback effect
+            const button = event.target;
+            const originalText = button.innerHTML;
+            button.innerHTML = '⏸ Playing...';
+            button.style.background = 'linear-gradient(45deg, #4ecdc4, #45b7d1)';
+            
+            // Simulate playing for 3 seconds then reset
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.style.background = 'linear-gradient(45deg, #ff6b6b, #4ecdc4)';
+                alert(`Now playing ${artistName}'s latest track! 🎵`);
+            }, 2000);
+        }
+
+        // Contact form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            // Simulate form submission
+            const submitButton = event.target.querySelector('.submit-button');
+            const originalText = submitButton.innerHTML;
+            submitButton.innerHTML = 'Sending...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                alert('Thank you for your message! We\'ll get back to you soon. 🎵');
+                event.target.reset();
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }, 2000);
+        }
+
+        // Social media links
+        function openSocial(platform) {
+            const messages = {
+                'spotify': 'Opening Sonic Wave Records on Spotify! 🎵',
+                'instagram': 'Check out our Instagram for behind-the-scenes content! 📷',
+                'twitter': 'Follow us on Twitter for the latest updates! 🐦',
+                'youtube': 'Subscribe to our YouTube channel for music videos! 📺'
+            };
+            alert(messages[platform]);
+        }
+
+        // Add parallax effect to hero section
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-background');
+            const speed = scrolled * 0.5;
+            parallax.style.transform = `translateY(${speed}px)`;
+        });
+
+        // Add entrance animations when elements come into view
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Apply animations to cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.artist-card, .news-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+        });
+    </script>
 </body>
-
 </html>
