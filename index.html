@@ -282,20 +282,30 @@
         .book-cover {
             width: 200px;
             height: 280px;
-            background: linear-gradient(135deg, #cbd5e0, #a0aec0);
-            border-radius: 10px;
             margin: 0 auto 2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
-            color: #2d3748;
+            border-radius: 10px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .book-cover:hover {
             transform: rotateY(10deg) rotateX(5deg);
+        }
+
+        .book-cover-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .book-cover:hover .book-cover-image {
+            transform: scale(1.02);
         }
 
         .book-buttons {
@@ -611,7 +621,9 @@
     <section id="book" class="section">
         <div class="book-section">
             <h2>📖 Kinderbuch</h2>
-            <div class="book-cover">📚</div>
+            <div class="book-cover">
+                <img src="book-cover.png" alt="Das Leuchten in dir - Buchcover" class="book-cover-image">
+            </div>
             <h3>„Das Leuchten in dir – Ein Buch für große Fragen"</h3>
 
             <div class="section-content">
