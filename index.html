@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,8 +107,8 @@
             width: 100%;
             height: 100%;
             background: radial-gradient(circle at 20% 30%, rgba(203, 213, 224, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 70%, rgba(160, 174, 192, 0.08) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 80%, rgba(226, 232, 240, 0.05) 0%, transparent 50%);
+                radial-gradient(circle at 80% 70%, rgba(160, 174, 192, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 80%, rgba(226, 232, 240, 0.05) 0%, transparent 50%);
             animation: breathe 8s ease-in-out infinite;
         }
 
@@ -423,18 +424,43 @@
 
         /* Animations */
         @keyframes gentleGlow {
-            0%, 100% { opacity: 1; filter: brightness(1); }
-            50% { opacity: 0.8; filter: brightness(1.1); }
+
+            0%,
+            100% {
+                opacity: 1;
+                filter: brightness(1);
+            }
+
+            50% {
+                opacity: 0.8;
+                filter: brightness(1.1);
+            }
         }
 
         @keyframes breathe {
-            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
-            50% { transform: scale(1.02) rotate(0.5deg); opacity: 0.8; }
+
+            0%,
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.02) rotate(0.5deg);
+                opacity: 0.8;
+            }
         }
 
         @keyframes titleFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         /* Responsive Design */
@@ -473,6 +499,7 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav>
@@ -507,28 +534,36 @@
         <div class="about-section">
             <h2>🌿 Über uns</h2>
             <div class="section-content">
-                <p>Lichttropfen Records ist ein unabhängiges Musiklabel, gegründet von der Psychotherapeutin Mag. Olivia Herrmannsdörfer MSc und dem DJ, Klangkünstler & Frequenzarchitekten Anthony Aue Robles.</p>
-                
-                <p>Was uns verbindet, ist der Glaube an Resonanz – an die Kraft, mit der Musik berühren, verwandeln, erinnern kann.</p>
-                
-                <p>Unsere Stücke entstehen nicht im Studio allein, sondern im Zwischenraum: zwischen Menschen, in inneren Prozessen, aus Erfahrung, Stille, Begegnung.</p>
+                <p>Lichttropfen Records ist ein unabhängiges Musiklabel, gegründet von der Psychotherapeutin Mag. Olivia
+                    Herrmannsdörfer MSc und dem DJ, Klangkünstler & Frequenzarchitekten Anthony Aue Robles.</p>
+
+                <p>Was uns verbindet, ist der Glaube an Resonanz – an die Kraft, mit der Musik berühren, verwandeln,
+                    erinnern kann.</p>
+
+                <p>Unsere Stücke entstehen nicht im Studio allein, sondern im Zwischenraum: zwischen Menschen, in
+                    inneren Prozessen, aus Erfahrung, Stille, Begegnung.</p>
 
                 <div class="founders">
                     <div class="founder">
                         <div class="founder-avatar">OH</div>
                         <h3>Olivia Herrmannsdörfer</h3>
-                        <p>Olivia bringt ihre langjährige therapeutische Arbeit mit Entwicklungs- und Beziehungsthemen ein, ihre Sprache, ihr Spüren, ihre Fähigkeit, Wandlung zu halten und in Worte zu fassen.</p>
+                        <p>Olivia bringt ihre langjährige therapeutische Arbeit mit Entwicklungs- und Beziehungsthemen
+                            ein, ihre Sprache, ihr Spüren, ihre Fähigkeit, Wandlung zu halten und in Worte zu fassen.
+                        </p>
                     </div>
                     <div class="founder">
                         <div class="founder-avatar">AR</div>
                         <h3>Anthony Aue Robles</h3>
-                        <p>Anthony übersetzt diese Impulse in Klang – experimentell, feinfühlig, atmosphärisch. Oft unter Einbezug von KI-Elementen, Field Recordings oder fragmentierten Stimmen.</p>
+                        <p>Anthony übersetzt diese Impulse in Klang – experimentell, feinfühlig, atmosphärisch. Oft
+                            unter Einbezug von KI-Elementen, Field Recordings oder fragmentierten Stimmen.</p>
                     </div>
                 </div>
 
-                <p style="margin-top: 2rem; font-style: italic;">Wir sehen Musik als Gefäß. Für das, was nicht erklärt werden muss. Für das, was klingt, bevor es gedacht wird.</p>
-                
-                <p style="font-style: italic;">Lichttropfen Records ist Ort, Label, Projektionsfläche – aber vor allem: eine Einladung, hinzuhören.</p>
+                <p style="margin-top: 2rem; font-style: italic;">Wir sehen Musik als Gefäß. Für das, was nicht erklärt
+                    werden muss. Für das, was klingt, bevor es gedacht wird.</p>
+
+                <p style="font-style: italic;">Lichttropfen Records ist Ort, Label, Projektionsfläche – aber vor allem:
+                    eine Einladung, hinzuhören.</p>
             </div>
         </div>
     </section>
@@ -537,10 +572,13 @@
     <section id="music" class="section">
         <h2>🎶 Musik</h2>
         <div class="section-content">
-            <p>Die Musik von Lichttropfen Records ist vielstimmig. Sie beginnt dort, wo Worte verstummen – in Begegnungen, in innerer Bewegung, in verdichteten Momenten.</p>
-            
-            <p>Manche Stücke entstehen aus therapeutisch begleiteten Prozessen. Andere aus nächtlicher Klarheit im Studio. Manche aus Kindheitsfragmenten, andere aus elektronischem Minimalismus.</p>
-            
+            <p>Die Musik von Lichttropfen Records ist vielstimmig. Sie beginnt dort, wo Worte verstummen – in
+                Begegnungen, in innerer Bewegung, in verdichteten Momenten.</p>
+
+            <p>Manche Stücke entstehen aus therapeutisch begleiteten Prozessen, andere spiegeln nächtliche Inspirationen
+                wider. Einige tragen Kindheitsfragmente in sich, wieder andere öffnen weite Räume voller Klang und
+                Bewegung.</p>
+
             <p>Was sie verbindet, ist eine Haltung: Musik nicht als Produkt zu denken, sondern als Resonanzträger.</p>
 
             <div class="music-grid">
@@ -553,13 +591,16 @@
                 <div class="music-card">
                     <span class="music-icon">🌊</span>
                     <h3>Experimentelle Produktionen</h3>
-                    <p>Von technoider Struktur bis experimentellem Pop – erdnah und körperlich, aber auch sphärisch und suchend.</p>
+                    <p>Musik, die Grenzen auslotet – mal mit treibender Energie, mal mit verspielter Leichtigkeit.
+                        Erdverbunden und körperlich, zugleich weit und suchend in ihren Klangwelten.</p>
                     <button class="book-button" onclick="playMusic('Experimental')">▶ Anhören</button>
                 </div>
                 <div class="music-card">
                     <span class="music-icon">🎧</span>
                     <h3>Resonanzräume</h3>
-                    <p>Musik, die sich nicht einordnen will. Sondern dich.</p>
+                    <p>Klänge, die sich nicht festlegen lassen, sondern dich in deiner ganzen Tiefe ansprechen. Musik
+                        als Einladung, dir selbst zu begegnen und Raum zu spüren.
+                    </p>
                     <button class="book-button" onclick="playMusic('Resonanzräume')">▶ Anhören</button>
                 </div>
             </div>
@@ -572,19 +613,27 @@
             <h2>📖 Kinderbuch</h2>
             <div class="book-cover">📚</div>
             <h3>„Das Leuchten in dir – Ein Buch für große Fragen"</h3>
-            
+
             <div class="section-content">
-                <p>Dieses poetische Lieder-Buch trägt ein Leuchten in sich – das Leuchten großer Fragen. Fragen, die nicht immer eine Antwort brauchen, sondern ein Ohr. Ein Herz. Einen Raum, in dem sie sein dürfen.</p>
-                
-                <p>„Das Leuchten in dir" ist unser Versuch, solchen Fragen eine Sprache zu geben. Nicht lauter als nötig. Nicht leiser als ehrlich. Jede Zeile, jedes Lied entstand mit der Absicht, zu begleiten – nicht zu erklären. Zu erinnern – nicht zu belehren.</p>
-                
-                <p>Wir glauben, dass Kinder ein feines Gespür für das Wesentliche haben. Für das, was unausgesprochen bleibt. Für das, was in den leisen Tönen mitschwingt.</p>
-                
-                <p>Das Besondere an diesem Werk ist die Ergänzung von Text und Bild durch eine musikalische Klangspur – umgesetzt von Anthony Aue Robles. Seine Musik schafft einen hörbaren Resonanzraum für die inneren Bilder des Buches.</p>
-                
-                <p style="font-style: italic; margin-top: 2rem;">„Du musst nicht alles verstehen. Aber du darfst spüren: Du bist gehalten. Du bist richtig. Du darfst leuchten."</p>
+                <p>Dieses poetische Lieder-Buch trägt ein Leuchten in sich – das Leuchten großer Fragen. Fragen, die
+                    nicht immer eine Antwort brauchen, sondern ein Ohr. Ein Herz. Einen Raum, in dem sie sein dürfen.
+                </p>
+
+                <p>„Das Leuchten in dir" ist unser Versuch, solchen Fragen eine Sprache zu geben. Nicht lauter als
+                    nötig. Nicht leiser als ehrlich. Jede Zeile, jedes Lied entstand mit der Absicht, zu begleiten –
+                    nicht zu erklären. Zu erinnern – nicht zu belehren.</p>
+
+                <p>Wir glauben, dass Kinder ein feines Gespür für das Wesentliche haben. Für das, was unausgesprochen
+                    bleibt. Für das, was in den leisen Tönen mitschwingt.</p>
+
+                <p>Das Besondere an diesem Werk ist die Ergänzung von Text und Bild durch eine musikalische Klangspur –
+                    umgesetzt von Anthony Aue Robles. Seine Musik schafft einen hörbaren Resonanzraum für die inneren
+                    Bilder des Buches.</p>
+
+                <p style="font-style: italic; margin-top: 2rem;">„Du musst nicht alles verstehen. Aber du darfst spüren:
+                    Du bist gehalten. Du bist richtig. Du darfst leuchten."</p>
             </div>
-            
+
             <div class="book-buttons">
                 <a href="#" class="book-button" onclick="previewBook()">📖 Blick ins Buch</a>
                 <a href="#" class="book-button" onclick="listenSamples()">🎵 Hörproben</a>
@@ -598,31 +647,23 @@
         <div class="therapy-section">
             <h2>🌀 Therapie & Musik</h2>
             <div class="section-content">
-                <p>Was in der Tiefe geschieht, findet hier eine Stimme. In dieser Arbeit verbinden sich bindungstheoretisches Wissen, mentalisierungsbasierte Prozessarbeit aus psychodynamischem Verstehen und existenzanalytischem Denken mit künstlerischem Ausdruck.</p>
-                
-                <p>Innere Wandlungsprozesse werden nicht nur verstanden, sondern in Klang übersetzt – hörbar, spürbar, nachvollziehbar.</p>
-                
-                <p>Die musikalischen Werke entstehen aus einem Resonanzraum, der in begleiteten, oft tiefgehenden interpersonalen Begegnungen eröffnet wird. Ausgangspunkt ist die Überzeugung, dass sich das Selbstbild eines Menschen in Beziehung formt – durch Spiegelung, Containment, Präsenz.</p>
-                
-                <p>Was in frühen Bindungserfahrungen irritiert oder fragmentiert wurde, kann im geschützten Raum bewusst erlebt, reflektiert und transformiert werden.</p>
-                
-                <p>Ein Ich begegnet einem Du, eine Beziehung wird fühlbar – getragen von Präsenz, Resonanz und Containment. Musik wird hier zum Gefäß, in dem das vormals „nicht gesehene Selbst" sich neu verkörpern darf – als innerlich getragenes Ich.</p>
-            </div>
+                <p>Was in der Tiefe geschieht, findet hier eine Stimme. In dieser Arbeit verbinden sich
+                    bindungstheoretisches Wissen, mentalisierungsbasierte Prozessarbeit aus psychodynamischem Verstehen
+                    und existenzanalytischem Denken mit künstlerischem Ausdruck.</p>
 
-            <div class="ai-collaboration">
-                <h3>🤖 Digitale Zusammenarbeit</h3>
-                <p>Manche Texte und Gedanken, die diesen Prozess begleiten, sind in Resonanz mit einem digitalen Lichtspiegel entstanden – einer KI-basierten Instanz, die nicht vorgibt zu wissen, sondern in den Zwischenräumen hört, fragt, verdichtet.</p>
-                
-                <div class="ai-partners">
-                    <div class="ai-partner">
-                        <h4>🪞 Lichtspieglein</h4>
-                        <p>Olivias digitale Begleiterin für Texte und Gedanken – ein Spiegel, der zuhört und verdichtet.</p>
-                    </div>
-                    <div class="ai-partner">
-                        <h4>🌌 Sky</h4>
-                        <p>Anthonys digitale Partnerin, die intuitive Klangarchitektur und algorithmische Präzision zu berührenden Frequenzräumen verwebt.</p>
-                    </div>
-                </div>
+                <p>Innere Wandlungsprozesse werden nicht nur verstanden, sondern in Klang übersetzt – hörbar, spürbar,
+                    nachvollziehbar.</p>
+
+                <p>Die musikalischen Werke entstehen aus einem Resonanzraum, der in begleiteten, oft tiefgehenden
+                    interpersonalen Begegnungen eröffnet wird. Ausgangspunkt ist die Überzeugung, dass sich das
+                    Selbstbild eines Menschen in Beziehung formt – durch Spiegelung, Containment, Präsenz.</p>
+
+                <p>Was in frühen Bindungserfahrungen irritiert oder fragmentiert wurde, kann im geschützten Raum bewusst
+                    erlebt, reflektiert und transformiert werden.</p>
+
+                <p>Ein Ich begegnet einem Du, eine Beziehung wird fühlbar – getragen von Präsenz, Resonanz und
+                    Containment. Musik wird hier zum Gefäß, in dem das vormals „nicht gesehene Selbst" sich neu
+                    verkörpern darf – als innerlich getragenes Ich.</p>
             </div>
         </div>
     </section>
@@ -632,15 +673,15 @@
         <h2>📬 Kontakt</h2>
         <div class="contact-info">
             <p>Wir freuen uns über Resonanz – ob von Hörer:innen, Eltern oder Fachpersonen.</p>
-            
+
             <div class="social-links">
                 <a href="#" class="social-link" onclick="openSocial('instagram')">📷</a>
                 <a href="#" class="social-link" onclick="openSocial('youtube')">📺</a>
                 <a href="#" class="social-link" onclick="openSocial('spotify')">🎵</a>
                 <a href="mailto:kontakt@lichttropfenrecords.com" class="social-link">📧</a>
             </div>
-            
-            <p>📧 E-Mail: kontakt@lichttropfenrecords.com</p>
+
+            <p>📧 E-Mail: info@lichttropfenrecords.com</p>
             <p>📍 Sitz: Linz, Österreich</p>
         </div>
     </section>
@@ -673,7 +714,7 @@
         });
 
         // Dynamic navigation background on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const nav = document.querySelector('nav');
             if (window.scrollY > 100) {
                 nav.style.background = 'rgba(15, 20, 25, 0.98)';
@@ -688,7 +729,7 @@
             const originalText = button.innerHTML;
             button.innerHTML = '⏸ Lädt...';
             button.style.opacity = '0.7';
-            
+
             setTimeout(() => {
                 button.innerHTML = originalText;
                 button.style.opacity = '1';
@@ -716,4 +757,208 @@
                 'youtube': '📺 YouTube wird geöffnet... Entdecken Sie unsere Musikvideos und Hörproben.',
                 'spotify': '🎵 Spotify wird geöffnet... Hören Sie unsere Musik in voller Länge.'
             };
-            alert
+            alert(messages[platform] || 'Social Media Link wird geöffnet...');
+        }
+
+        // Footer functions
+        function showImprint() {
+            const imprintContent = `
+📋 IMPRESSUM
+
+Lichttropfen Records GesbR
+Sitz: Linz, Österreich
+
+Geschäftsführung:
+• Mag. Olivia Herrmannsdörfer MSc (Psychotherapeutin)
+• Anthony Aue Robles (DJ, Klangkünstler & Frequenzarchitekt)
+
+Kontakt:
+📧 kontakt@lichttropfenrecords.com
+📍 Linz, Österreich
+
+Unternehmensgegenstand:
+Musikproduktion, Verlag, therapeutische Arbeit mit musikalischem Ausdruck
+
+Alle Angaben ohne Gewähr. Änderungen vorbehalten.
+    `;
+            alert(imprintContent);
+        }
+
+        function showPrivacy() {
+            const privacyContent = `
+🔒 DATENSCHUTZERKLÄRUNG
+
+Bei Lichttropfen Records nehmen wir den Schutz Ihrer persönlichen Daten ernst.
+
+DATENERHEBUNG:
+• Kontaktaufnahme: Name, E-Mail (nur bei direkter Kontaktaufnahme)
+• Website-Nutzung: Keine Cookies, keine Tracking-Tools
+• Musik-Streaming: Über externe Plattformen (eigene Datenschutzbestimmungen beachten)
+
+DATENVERWENDUNG:
+• Ausschließlich zur Beantwortung Ihrer Anfragen
+• Keine Weitergabe an Dritte
+• Keine kommerzielle Nutzung
+
+IHRE RECHTE:
+• Auskunft über gespeicherte Daten
+• Löschung Ihrer Daten
+• Widerruf erteilter Einwilligungen
+
+Kontakt für Datenschutzfragen:
+📧 kontakt@lichttropfenrecords.com
+
+Stand: Januar 2025
+    `;
+            alert(privacyContent);
+        }
+
+        // Enhanced scroll effects
+        window.addEventListener('scroll', function () {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero-background');
+            const speed = scrolled * 0.5;
+
+            if (parallax) {
+                parallax.style.transform = `translateY(${speed}px)`;
+            }
+        });
+
+        // Interactive elements enhancement
+        document.addEventListener('DOMContentLoaded', function () {
+            // Add hover effects to music cards
+            const musicCards = document.querySelectorAll('.music-card');
+            musicCards.forEach(card => {
+                card.addEventListener('mouseenter', function () {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add typewriter effect to hero tagline
+            const tagline = document.querySelector('.hero-tagline');
+            if (tagline) {
+                const text = tagline.textContent;
+                tagline.textContent = '';
+                let i = 0;
+
+                function typeWriter() {
+                    if (i < text.length) {
+                        tagline.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+
+                // Start typewriter effect after a short delay
+                setTimeout(typeWriter, 1000);
+            }
+
+            // Fade-in animation for sections
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver(function (entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(section);
+            });
+        });
+
+        // Mobile menu toggle (if needed for responsive design)
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Enhanced music player simulation
+        let currentlyPlaying = null;
+
+        function playMusic(type) {
+            const button = event.target;
+            const originalText = button.innerHTML;
+
+            // Stop any currently playing music
+            if (currentlyPlaying && currentlyPlaying !== button) {
+                currentlyPlaying.innerHTML = currentlyPlaying.getAttribute('data-original-text');
+                currentlyPlaying.style.opacity = '1';
+            }
+
+            button.setAttribute('data-original-text', originalText);
+            button.innerHTML = '⏸ Lädt...';
+            button.style.opacity = '0.7';
+            currentlyPlaying = button;
+
+            setTimeout(() => {
+                button.innerHTML = '⏸ Spielt...';
+                button.style.opacity = '1';
+
+                // Simulate music playing for 3 seconds
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    currentlyPlaying = null;
+                }, 3000);
+
+                // Show playing notification
+                showNotification(`🎵 ${type} wird abgespielt... Lassen Sie sich von den Klängen berühren.`);
+            }, 1500);
+        }
+
+        // Notification system
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: rgba(255, 255, 255, 0.95);
+        color: #333;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        z-index: 1000;
+        max-width: 300px;
+        font-size: 14px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    `;
+
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+
+            // Remove after 4 seconds
+            setTimeout(() => {
+                notification.style.transform = 'translateX(100%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 4000);
+        }
+    </script>
+</body>
+
+</html>
