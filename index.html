@@ -93,78 +93,145 @@
         .hero {
             height: 100vh;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            text-align: center;
+            align-items: center;
             position: relative;
-            overflow: hidden;
+            background: radial-gradient(ellipse at center, #1a1a1a 0%, #0a0a0a 100%);
         }
 
-        .hero-background {
+        .droplet-container {
+            position: relative;
+            margin-bottom: 3rem;
+            animation: float 6s ease-in-out infinite;
+            width: 150px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .droplet-svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(0 0 40px rgba(244, 228, 166, 0.6));
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .droplet-path {
+            fill: url(#dropletGradient);
+            stroke: rgba(244, 228, 166, 0.8);
+            stroke-width: 0.5;
+        }
+
+        .droplet-highlight {
+            fill: url(#highlightGradient);
+            opacity: 0.6;
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .logo-text {
+            text-align: center;
+            animation: fadeInUp 2s ease-out 0.5s both;
+        }
+
+        .main-title {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 0.3em;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(45deg, #f4e4a6, #ffffff, #e6d285);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 200;
+            letter-spacing: 0.8em;
+            color: #cccccc;
+            margin-bottom: 2rem;
+        }
+
+        .wave-line {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #f4e4a6, transparent);
+            margin: 2rem auto;
+            position: relative;
+            overflow: hidden;
+            animation: waveMove 3s linear infinite;
+        }
+
+        .wave-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 228, 166, 0.8), transparent);
+            animation: waveSlide 2s linear infinite;
+        }
+
+        .particles {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 20% 30%, rgba(203, 213, 224, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(160, 174, 192, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 40% 80%, rgba(226, 232, 240, 0.05) 0%, transparent 50%);
-            animation: breathe 8s ease-in-out infinite;
+            pointer-events: none;
+            z-index: -1;
         }
 
-        .hero-content {
-            z-index: 2;
-            max-width: 900px;
-            padding: 0 2rem;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            background: linear-gradient(45deg, #e2e8f0, #cbd5e0, #a0aec0);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: titleFloat 6s ease-in-out infinite;
-        }
-
-        .hero-tagline {
-            font-size: 1.4rem;
-            margin-bottom: 3rem;
-            opacity: 0.9;
-            font-style: italic;
-            color: #cbd5e0;
-            font-weight: 300;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 2rem;
-            justify-content: center;
-            flex-wrap: wrap;
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #f4e4a6;
+            border-radius: 50%;
+            opacity: 0;
+            animation: particleFloat 8s linear infinite;
         }
 
         .cta-button {
-            display: inline-block;
-            padding: 1.2rem 2.5rem;
-            background: rgba(203, 213, 224, 0.1);
-            color: #e2e8f0;
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid #f4e4a6;
+            color: #f4e4a6;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease-out 1s both;
+
             text-decoration: none;
-            border-radius: 40px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(203, 213, 224, 0.3);
-            backdrop-filter: blur(10px);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 228, 166, 0.2), transparent);
+            transition: left 0.5s ease;
         }
 
         .cta-button:hover {
-            background: rgba(203, 213, 224, 0.2);
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-            border-color: rgba(203, 213, 224, 0.5);
+            color: #0a0a0a;
+            background: #f4e4a6;
+            box-shadow: 0 0 30px rgba(244, 228, 166, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
         }
 
         /* Sections */
@@ -433,6 +500,107 @@
         }
 
         /* Animations */
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                filter: drop-shadow(0 0 40px rgba(244, 228, 166, 0.6));
+                transform: scale(1);
+            }
+
+            50% {
+                filter: drop-shadow(0 0 60px rgba(244, 228, 166, 0.8));
+                transform: scale(1.05);
+            }
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.8;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 20px rgba(244, 228, 166, 0.5);
+            }
+
+            100% {
+                text-shadow: 0 0 40px rgba(244, 228, 166, 0.8);
+            }
+        }
+
+        @keyframes waveMove {
+            0% {
+                transform: translateX(-100%);
+            }
+
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        @keyframes waveSlide {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes particleFloat {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) translateX(0);
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-100px) translateX(100px);
+            }
+        }
+
         @keyframes gentleGlow {
 
             0%,
@@ -528,15 +696,41 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
-            <h1>LICHTTROPFEN RECORDS</h1>
-            <p class="hero-tagline">„Musik, geboren aus Beziehung. Klang gewordene Wandlung."</p>
-            <div class="hero-buttons">
-                <a href="#book" class="cta-button">Zum Kinderbuch</a>
-                <a href="#music" class="cta-button">Zur Musik hören</a>
-            </div>
+        <div class="particles" id="particles"></div>
+
+        <div class="droplet-container">
+            <svg class="droplet-svg" viewBox="0 0 30 42">
+                <defs>
+                    <linearGradient id="dropletGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f4e4a6;stop-opacity:1" />
+                        <stop offset="50%" style="stop-color:#e6d285;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#d4bc5a;stop-opacity:1" />
+                    </linearGradient>
+                    <radialGradient id="highlightGradient" cx="30%" cy="30%">
+                        <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.8" />
+                        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0" />
+                    </radialGradient>
+                </defs>
+
+                <path class="droplet-path" d="M15 3
+                         Q16.5 6.8 25 18
+                         A12.8 12.8 0 1 1 5 18
+                         Q13.5 6.8 15 3z" />
+
+                <path class="droplet-highlight" d="M15 8
+                         Q16 10 20 16
+                         A8 8 0 0 1 10 16
+                         Q14 10 15 8z" />
+            </svg>
         </div>
+
+        <div class="logo-text">
+            <h1 class="main-title">LICHTTROPFEN</h1>
+            <h2 class="subtitle">RECORDS</h2>
+            <div class="wave-line"></div>
+        </div>
+
+        <a href="#music" class="cta-button">DISCOVER MUSIC</a>
     </section>
 
     <!-- About Section -->
@@ -970,6 +1164,67 @@ Stand: Januar 2025
                 }, 300);
             }, 4000);
         }
+
+
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 20;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (8 + Math.random() * 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Simple sound effect simulation
+        function playSound() {
+            // Create audio context for a simple tone
+            if (typeof AudioContext !== 'undefined' || typeof webkitAudioContext !== 'undefined') {
+                const audioContext = new (AudioContext || webkitAudioContext)();
+                const oscillator = audioContext.createOscillator();
+                const gainNode = audioContext.createGain();
+
+                oscillator.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                oscillator.frequency.setValueAtTime(440, audioContext.currentTime);
+                oscillator.frequency.exponentialRampToValueAtTime(880, audioContext.currentTime + 0.1);
+
+                gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+
+                oscillator.start(audioContext.currentTime);
+                oscillator.stop(audioContext.currentTime + 0.5);
+            }
+
+            // Button animation
+            const button = event.target;
+            button.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                button.style.transform = 'translateY(-2px)';
+            }, 100);
+        }
+
+        // Initialize particles when page loads
+        document.addEventListener('DOMContentLoaded', createParticles);
+
+        // Add mouse interaction
+        document.addEventListener('mousemove', (e) => {
+            const droplet = document.querySelector('.droplet-container');
+            const rect = droplet.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            const deltaX = (e.clientX - centerX) / 50;
+            const deltaY = (e.clientY - centerY) / 50;
+
+            droplet.style.transform = `translate(${deltaX}px, ${deltaY}px)`;
+        });
     </script>
 </body>
 
