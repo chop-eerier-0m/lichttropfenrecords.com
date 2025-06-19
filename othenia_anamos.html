@@ -7,6 +7,46 @@
     <title>Othénia ∞ Anamós - Lichttropfen Records</title>
     <link rel="stylesheet" href="mobile_css.css">
     <style>
+        .cta-button {
+            padding: 1rem 2.5rem;
+            background: transparent;
+            border: 2px solid #f4e4a6;
+            color: #f4e4a6;
+            font-size: 1.1rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 2s ease-out 1s both;
+            margin-bottom: 32px;
+            text-decoration: none;
+            display: inline-block;
+            
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 228, 166, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover {
+            color: #0a0a0a;
+            background: #f4e4a6;
+            box-shadow: 0 0 30px rgba(244, 228, 166, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -491,7 +531,8 @@
                 Beziehung nicht gemacht, sondern erlebt wird. Auch in den Kinderliedern geht es um Bindung und Resonanz,
                 um das innere Erkennen und Gesehenwerden, um Vertrauen. Deshalb erscheinen auch diese unter dem Namen
                 <em>Othénia ∞
-                    Anamós</em>.</p>
+                    Anamós</em>.
+            </p>
 
             <p>Veröffentlichungen sind getragen von einem respektvollen Zugang zum menschlichen Erleben. Persönliche
                 Geschichten dürfen nur unter strenger Wahrung ethischer Standards erzählt werden, die Umsetzung erfolgt
@@ -575,6 +616,8 @@
                             <p>Es ist eine Ode an die Kraft der Erinnerung und die unvergängliche Verbindung zwischen
                                 Menschen und wie das Tanzen und die Musik eine Brücke zwischen Vergangenheit und
                                 Gegenwart schlagen können.</p>
+
+                            <a href="https://www.youtube.com/watch?v=PTMZkE9zXyc" class="cta-button">JETZT HÖREN</a>
                         </div>
                     </div>
                 </div>
