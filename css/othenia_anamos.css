@@ -1,0 +1,441 @@
+.cta-button {
+    padding: 1rem 2.5rem;
+    background: transparent;
+    border: 2px solid #f4e4a6;
+    color: #f4e4a6;
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 2s ease-out 1s both;
+    margin-bottom: 32px;
+    text-decoration: none;
+    display: inline-block;
+
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(244, 228, 166, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.cta-button:hover {
+    color: #0a0a0a;
+    background: #f4e4a6;
+    box-shadow: 0 0 30px rgba(244, 228, 166, 0.5);
+    transform: translateY(-2px);
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 30%, #2d3748 70%, #4a5568 100%);
+    color: #e2e8f0;
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* Navigation */
+nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15, 20, 25, 0.95);
+    backdrop-filter: blur(15px);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    background: linear-gradient(45deg, #cbd5e0, #a0aec0, #e2e8f0);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gentleGlow 4s ease-in-out infinite alternate;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #cbd5e0;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.nav-links a:hover {
+    color: #e2e8f0;
+    transform: translateY(-1px);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: linear-gradient(45deg, #cbd5e0, #e2e8f0);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 120px 2rem 6rem;
+}
+
+.project-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.project-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    letter-spacing: 0.2em;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #f4e4a6, #ffffff, #e6d285);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+.project-subtitle {
+    font-size: 1.5rem;
+    font-weight: 200;
+    letter-spacing: 0.3em;
+    color: #cccccc;
+}
+
+.project-description {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.etymology-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.etymology-card {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.etymology-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1em;
+    color: #f4e4a6;
+}
+
+.etymology-phonetic {
+    font-style: italic;
+    margin-bottom: 1rem;
+    color: #a0aec0;
+}
+
+.etymology-list {
+    margin-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #cbd5e0;
+}
+
+.etymology-meaning {
+    color: #e2e8f0;
+    font-style: italic;
+}
+
+.section-divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(244, 228, 166, 0.5), transparent);
+    margin: 4rem auto;
+}
+
+/* Tracks Section */
+.tracks-section {
+    margin-top: 3rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    letter-spacing: 0.1em;
+    color: #f4e4a6;
+    text-align: center;
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.track-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.track-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.track-header {
+    padding: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.track-title {
+    font-size: 1.5rem;
+    color: #e2e8f0;
+}
+
+.track-icon {
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.track-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    padding: 0 1.5rem;
+}
+
+.track-content.active {
+    max-height: 2000px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.track-description {
+    color: #cbd5e0;
+    margin-bottom: 1.5rem;
+}
+
+.track-quote {
+    font-style: italic;
+    color: #a0aec0;
+    border-left: 3px solid rgba(244, 228, 166, 0.5);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 1.5rem 0;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 3rem 0;
+    text-align: center;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #a0aec0;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #cbd5e0;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: rgba(244, 228, 166, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f4e4a6;
+    text-decoration: none;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.back-to-top:hover {
+    background: rgba(244, 228, 166, 0.3);
+    transform: translateY(-5px);
+}
+
+/* Animations */
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 20px rgba(244, 228, 166, 0.5);
+    }
+
+    100% {
+        text-shadow: 0 0 40px rgba(244, 228, 166, 0.8);
+    }
+}
+
+@keyframes gentleGlow {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: brightness(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        filter: brightness(1.1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+
+    .project-subtitle {
+        font-size: 1rem;
+    }
+
+    .project-description {
+        padding: 1.5rem;
+    }
+
+    .etymology-section {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 100px 1rem 3rem;
+    }
+}
+
+/* Infinity Symbol Animation */
+.infinity-symbol {
+    font-size: 3rem;
+    display: inline-block;
+    color: #f4e4a6;
+    text-shadow: 0 0 20px rgba(244, 228, 166, 0.5);
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(360deg);
+    }
+}
